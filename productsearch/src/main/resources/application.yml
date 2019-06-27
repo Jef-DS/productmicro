@@ -1,0 +1,26 @@
+server:
+  port: 8086
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # in SPring boot 2.* we have to expose the endpoints explicitly (only info and health are exposed)
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+
+spring:
+  data:
+    elasticsearch:
+      repository:
+        enabled: true
+      cluster-name: "elasticsearch"
+      cluster-nodes: "localhost:9300"
+#messaging
+  jms:
+    pub-sub-domain: true
+  activemq:
+    broker-url: "tcp://localhost:61616"
+
+jms:
+  ProductTopic: "ProductTopic"

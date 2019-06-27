@@ -1,0 +1,19 @@
+server:
+  port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # in SPring boot 2.* we have to expose the endpoints explicitly (only info and health are exposed)
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+
+logging:
+  level:
+    org:
+      hibernate:
+        tool:
+          hbm2ddl: "DEBUG"
+        SQL: "DEBUG"
+  

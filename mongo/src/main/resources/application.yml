@@ -1,0 +1,24 @@
+server:
+  port: 8085
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # in SPring boot 2.* we have to expose the endpoints explicitly (only info and health are exposed)
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+
+spring:
+  data:
+    mongodb:
+      database: "masterdb"
+# messaging
+  jms:
+    pub-sub-domain: true
+  activemq:
+    broker-url: "tcp://localhost:61616"
+
+jms:
+  ProductTopic: "ProductT"
+
